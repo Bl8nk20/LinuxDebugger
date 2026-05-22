@@ -1,1 +1,4 @@
 # LinuxDebugger
+
+preparing:
+cdcmake -S .. 
