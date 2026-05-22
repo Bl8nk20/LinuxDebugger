@@ -1,2 +1,3 @@
 add_subdirectory(Breakpoint)
+add_subdirectory(Registers)
 add_subdirectory(Debugger)
