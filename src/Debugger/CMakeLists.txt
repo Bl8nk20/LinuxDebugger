@@ -21,11 +21,10 @@ add_library(${PROJECT_NAME}
         ${Headers}
 )
 
-#target_link_libraries(${PROJECT_NAME}
-#        PRIVATE
-        # linenoise
-#        libelfin
-#)  
+target_link_libraries(${PROJECT_NAME}
+        PUBLIC
+        Breakpoint
+)  
 
 target_include_directories(${PROJECT_NAME} 
         PUBLIC 

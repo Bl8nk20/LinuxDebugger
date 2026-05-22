@@ -1,1 +1,2 @@
+add_subdirectory(Breakpoint)
 add_subdirectory(Debugger)
