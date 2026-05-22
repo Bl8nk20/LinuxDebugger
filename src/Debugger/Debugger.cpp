@@ -68,3 +68,10 @@ void Debugger::set_breakpoint_at_address(std::intptr_t addr){
     
     m_breakpoints[addr] = bp;
 }
+
+void Debugger::dump_registers(){
+    for(const auto& rd:g_register_descriptors){
+        std::cout << rd.name << "0x" 
+                  << std::setfill('0') << std::setw(16) << std::hex << get_register_value(m_pid, rd.r) << std::endl;
+    }
+}
