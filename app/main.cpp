@@ -1,4 +1,5 @@
 
+#include <sys/personality.h>
 #include "Debugger/IDebugger.hpp"
 
 using namespace LinuxDebugger;
@@ -13,6 +14,7 @@ int main(int argc, char* argv[]){
     auto pid = fork();
     if (pid == 0) {
         //execute debugee
+        personality(ADDR_NO_RANDOMIZE);
         ptrace(PTRACE_TRACEME, 0, nullptr, nullptr);
         execl(prog, prog, nullptr);
     }
