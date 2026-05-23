@@ -33,7 +33,7 @@ namespace LinuxDebugger {
             int dwarf_r;
             std::string name;
         };
-
+        public: 
         inline static const std::array<reg_descriptor, n_registers> g_register_descriptors {{
             { reg::r15, 15, "r15" },
             { reg::r14, 14, "r14" },
@@ -64,18 +64,19 @@ namespace LinuxDebugger {
             { reg::gs, 55, "gs" },
         }};
 
-    public:
         Registers();
 
-        uint64_t get_register_value(pid_t pid, LinuxDebugger::reg r);
+        std::array<reg_descriptor, n_registers> static get_register_values();
 
-        void set_register_value(pid_t pid, LinuxDebugger::reg r, uint64_t value);
+        uint64_t static get_register_value(pid_t pid, LinuxDebugger::reg r);
 
-        uint64_t get_register_value_from_dwarf_register(pid_t, unsigned regnum);
+        void static set_register_value(pid_t pid, LinuxDebugger::reg r, uint64_t value);
 
-        std::string get_register_name(LinuxDebugger::reg r);
+        uint64_t static get_register_value_from_dwarf_register(pid_t, unsigned regnum);
 
-        LinuxDebugger::reg get_register_from_name(const std::string& name);
+        std::string static get_register_name(LinuxDebugger::reg r);
+
+        LinuxDebugger::reg static get_register_from_name(const std::string& name);
     };
 }
 
